@@ -4,41 +4,48 @@ gulp        = require 'gulp'
 ignore      = require 'gulp-ignore'
 jade        = require 'gulp-jade'
 less        = require 'gulp-less'
-mocha       = require 'gulp-spawn-mocha'
 nodemon     = require 'gulp-nodemon'
 templatizer = require 'templatizer'
 watch       = require 'gulp-watch'
+cp          = require 'child_process'
 
 log = console.log.bind console
 
 config =
 	directories:
 		source: './src'
-		build: './build'
+		build:  './build'
+		test:   './test'
 
 		lib:           'lib'
 		client:        'client'
 		server:        'server'
-		test:          'test'
 		documentation: 'doc'
 
 runTests = (exit, reporter, cb) ->
-	mochaInstance = mocha
-		reporter: reporter
+	mochaInstance = cp.spawn 'mocha', [
+		'--recursive'
+		'--compilers'
+		'coffee:coffee-script/register'
+		'--compilers'
+		'litcoffee:coffee-script/register'
+		'--reporter'
+		'spec'
+		'./test'
+	]
 
-	# Do nothing here
-	mochaInstance.on 'error', (error) ->
+	mochaInstance.stdout.on 'data', (data) ->
+		process.stdout.write data
 
-	mochaInstance.on 'end', ->
+	mochaInstance.stderr.on 'data', (data) ->
+		process.stdout.write data
+
+	mochaInstance.once 'close', ->
 		if exit
 			process.exit()
+
 		else
 			cb()
-
-	gulp.src "#{config.directories.build}/#{config.directories.test}/**/*.js", read: false
-		.pipe mochaInstance
-		.on 'error', (error) ->
-			# do nothing here
 
 gulp.task 'clean', ->
 	gulp.src "#{config.directories.build}/*", read: false
