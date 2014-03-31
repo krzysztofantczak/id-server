@@ -1,10 +1,15 @@
-	net      = require 'net'
-	dnode    = require 'dnode'
+Global dependencies.
 
+	dnode          = require 'dnode'
 	idShared       = require 'id-shared'
+	net            = require 'net'
 	{ log, debug } = idShared.debug
 
+Local dependencies.
+
 	TCPServer = require './TCPServer'
+
+RPC interface over TCP.
 
 	class DnodeServer extends TCPServer
 		constructor: (options) ->

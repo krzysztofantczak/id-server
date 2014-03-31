@@ -1,8 +1,14 @@
-	http = require 'http'
+Global dependencies.
 
-	Server         = require './Server'
+	http           = require 'http'
 	idShared       = require 'id-shared'
 	{ log, debug } = idShared.debug
+
+Local dependencies.
+
+	Server = require './Server'
+
+Wraps the Node.js http.Server
 
 	class HTTPServer extends Server
 		constructor: (options) ->

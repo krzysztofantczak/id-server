@@ -1,9 +1,12 @@
+Global dependencies.
+
+	idShared         = require 'id-shared'
 	net              = require 'net'
 	seaport          = require 'seaport'
 	{ EventEmitter } = require 'events'
+	{ log, debug }   = idShared.debug
 
-	idShared       = require 'id-shared'
-	{ log, debug } = idShared.debug
+Provides an abstraction to a (distributed) Service Registry.
 
 	class ManagedPort extends EventEmitter
 		constructor: (options) ->

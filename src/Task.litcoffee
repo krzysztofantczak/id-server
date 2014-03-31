@@ -1,15 +1,18 @@
+Global dependencies.
+Local dependencies.
 	_                = require 'underscore'
 	async            = require 'async'
 	fs               = require 'fs'
-	{ spawn }        = require 'child_process'
+	idShared         = require 'id-shared'
 	{ EventEmitter } = require 'events'
+	{ log, debug }   = idShared.debug
+	{ spawn }        = require 'child_process'
 
-	idShared       = require 'id-shared'
-	{ log, debug } = idShared.debug
+Delegates work in parallel over workers
 
-	# Delegates work in parallel over workers
-	# TODO: connect stdin/out/err in a meaningful way.
-	# TODO: emit 'done' when the task is done
+- TODO: connect stdin/out/err in a meaningful way.
+- TODO: emit 'done' when the task is done
+
 	class Task extends EventEmitter
 		constructor: (options) ->
 			debug 'Task#constructor', arguments
@@ -42,7 +45,8 @@
 			fs.exists @path, (exists) =>
 				@emit 'error', new Error 'path does not exist' unless exists
 
-		# Add a worker to @workers and @pids
+Add a worker to @workers and @pids
+
 		_addWorker: ->
 			debug 'Task#_addWorker'
 
@@ -60,8 +64,8 @@
 			worker.once 'exit', (code, signal) =>
 				@_removeWorker worker
 
-				# Restart if the restart option is set and unless it was a clean exit or
-				# SIGTERM.
+Restart if the restart option is set and unless it was a clean exit or SIGTERM.
+
 				if @restart and not (code in [null, 0, 143] and signal in [null, 'SIGTERM'])
 					debug "worker #{worker.pid} exited (code: #{code}, signal: #{signal}), restarting..."
 					@_addWorker()
@@ -71,7 +75,8 @@
 
 			@emit 'worker', worker
 
-		# Remove a worker from @workers and @pids
+Remove a worker from @workers and @pids
+
 		_removeWorker: (worker) ->
 			debug 'Task#_removeWorker', worker.pid
 

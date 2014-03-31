@@ -1,10 +1,16 @@
-	multilevel = require 'multilevel'
-	net        = require 'net'
-	level      = require 'level'
+Global dependencies.
 
-	TCPServer      = require './TCPServer'
 	idShared       = require 'id-shared'
+	level          = require 'level'
+	multilevel     = require 'multilevel'
+	net            = require 'net'
 	{ log, debug } = idShared.debug
+
+Local dependencies.
+
+	TCPServer = require './TCPServer'
+
+Wraps a Multilevel Server.
 
 	class LevelDBServer extends TCPServer
 		constructor: (options) ->

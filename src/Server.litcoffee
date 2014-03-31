@@ -2,15 +2,15 @@ Global dependencies.
 
 	_                = require 'underscore'
 	async            = require 'async'
+	idShared         = require 'id-shared'
 	seaport          = require 'seaport'
 	{ EventEmitter } = require 'events'
+	{ log, debug }   = idShared.debug
 
 Local dependencies.
 
-	Client         = require './client/Client'
-	ManagedPort    = require './ManagedPort'
-	idShared       = require 'id-shared'
-	{ log, debug } = idShared.debug
+	Client      = require './client/Client'
+	ManagedPort = require './ManagedPort'
 
 Base class for all servers that run by name/version on managed ports. Uses the
 Client class to enable servers to connect during startup and talk
