@@ -6,7 +6,8 @@ Global depencencies.
 
 Local depencies.
 
-	{ log, debug } = require '../../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 A class that will establish and make available a connection to a Server. Used
 by the Server class for instances to connect to other Server instances. Enables

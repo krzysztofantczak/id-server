@@ -2,13 +2,14 @@
 	expect    = chai.expect
 	{ spawn } = require 'child_process'
 
-	Task           = require '../../../server/Task'
-	{ log, debug } = require '../../../lib/debug'
+	Task           = require '../src/Task'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	newTask = ->
 		name:    'foo'
-		command: 'node'
-		path:    "#{__dirname}/../../../testFixtures/unit/server/Task/daemonWorker.js"
+		command: 'coffee'
+		path:    "#{__dirname}/../testFixtures/Task/daemonWorker.litcoffee"
 
 	describe 'Task', ->
 		describe 'constructor', ->
@@ -17,7 +18,7 @@
 					fn = ->
 						task = new Task
 							name:    'foo'
-							path:    "#{__dirname}../../../testFixtures/unit/server/Task/daemonWorker.js"
+							path:    "#{__dirname}../testFixtures/Task/daemonWorker.litcoffee"
 
 					expect(fn).to.throw Error
 

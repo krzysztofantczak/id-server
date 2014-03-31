@@ -4,7 +4,8 @@
 	seaport = require 'seaport'
 
 	DnodeServer    = require '../src/DnodeServer'
-	{ log, debug } = require '../../../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'server', ->
 		describe 'DnodeServer', ->

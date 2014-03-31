@@ -3,7 +3,8 @@
 	level      = require 'level'
 
 	TCPServer      = require './TCPServer'
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	class LevelDBServer extends TCPServer
 		constructor: (options) ->
@@ -11,7 +12,7 @@
 
 			super options
 
-			@multilevelDatabase = level "#{__dirname}/../../db/#{options.db}"
+			@multilevelDatabase = level "#{__dirname}/../db/#{options.db}"
 
 			@multilevelServer = multilevel.server @multilevelDatabase
 

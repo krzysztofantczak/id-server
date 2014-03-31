@@ -2,8 +2,8 @@
 	seaport          = require 'seaport'
 	{ EventEmitter } = require 'events'
 
-	StateMachineTransform = require '../lib/streams/StateMachineTransform'
-	{ log, debug }        = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	class ManagedPort extends EventEmitter
 		constructor: (options) ->

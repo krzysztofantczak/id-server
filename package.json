@@ -7,6 +7,9 @@
   "license": "ISC",
   "dependencies": {
     "dnode": "^1.2.0",
+    "id-shared": "*",
+    "level": "^0.18.0",
+    "multilevel": "^5.5.0",
     "seaport": "^2.0.2"
   },
   "devDependencies": {

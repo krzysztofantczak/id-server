@@ -1,7 +1,8 @@
 	net = require 'net'
 
 	Server         = require './Server'
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	class TCPServer extends Server
 		constructor: (options) ->

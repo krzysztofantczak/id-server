@@ -3,8 +3,9 @@
 	net     = require 'net'
 	seaport = require 'seaport'
 
-	TCPServer      = require '../../../server/TCPServer'
-	{ log, debug } = require '../../../lib/debug'
+	TCPServer      = require '../src/TCPServer'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'TCPServer', ->
 		beforeEach (cb) ->

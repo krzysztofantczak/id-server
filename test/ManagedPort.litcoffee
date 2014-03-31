@@ -2,8 +2,9 @@
 	expect  = chai.expect
 	seaport = require 'seaport'
 
-	ManagedPort    = require '../../../server/ManagedPort'
-	{ log, debug } = require '../../../lib/debug'
+	ManagedPort    = require '../src/ManagedPort'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'ManagedPort', ->
 		describe 'constructor', ->

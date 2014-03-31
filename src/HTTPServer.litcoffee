@@ -1,7 +1,8 @@
 	http = require 'http'
 
 	Server         = require './Server'
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	class HTTPServer extends Server
 		constructor: (options) ->

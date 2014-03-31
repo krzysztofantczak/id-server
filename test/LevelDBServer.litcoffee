@@ -5,8 +5,9 @@
 	net        = require 'net'
 	seaport    = require 'seaport'
 
-	LevelDBServer  = require '../../../server/LevelDBServer'
-	{ log, debug } = require '../../../lib/debug'
+	LevelDBServer  = require '../src/LevelDBServer'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'server', ->
 		describe 'server', ->

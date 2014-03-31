@@ -9,7 +9,8 @@ Local dependencies.
 
 	Client         = require './client/Client'
 	ManagedPort    = require './ManagedPort'
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 Base class for all servers that run by name/version on managed ports. Uses the
 Client class to enable servers to connect during startup and talk

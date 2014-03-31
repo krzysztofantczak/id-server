@@ -3,8 +3,9 @@
 	http    = require 'http'
 	seaport = require 'seaport'
 
-	HTTPServer     = require '../../../server/HTTPServer'
-	{ log, debug } = require '../../../lib/debug'
+	HTTPServer     = require '../src/HTTPServer'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'HTTPServer', ->
 		beforeEach (cb) ->

@@ -2,9 +2,10 @@
 	expect  = chai.expect
 	seaport = require 'seaport'
 
-	Client         = require '../../../client/tcp/Client'
-	Server         = require '../../../server/Server'
-	{ log, debug } = require '../../../lib/debug'
+	Client         = require '../src/client/Client'
+	Server         = require '../src/Server'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	describe 'Server', ->
 		beforeEach (cb) ->

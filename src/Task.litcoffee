@@ -4,7 +4,8 @@
 	{ spawn }        = require 'child_process'
 	{ EventEmitter } = require 'events'
 
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
 
 	# Delegates work in parallel over workers
 	# TODO: connect stdin/out/err in a meaningful way.

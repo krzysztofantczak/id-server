@@ -1,8 +1,10 @@
-	net   = require 'net'
-	dnode = require 'dnode'
+	net      = require 'net'
+	dnode    = require 'dnode'
 
-	TCPServer      = require './TCPServer'
-	{ log, debug } = require '../lib/debug'
+	idShared       = require 'id-shared'
+	{ log, debug } = idShared.debug
+
+	TCPServer = require './TCPServer'
 
 	class DnodeServer extends TCPServer
 		constructor: (options) ->
