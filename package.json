@@ -6,9 +6,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dnode": "^1.2.0",
+    "seaport": "^2.0.2"
   },
   "devDependencies": {
     "async": "*",
+    "chai": "^1.9.1",
     "coffee-script": "*",
     "gulp": "*",
     "gulp-clean": "*",
