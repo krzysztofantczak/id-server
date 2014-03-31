@@ -1,7 +1,7 @@
 {
-  "name": "id-project",
+  "name": "id-server",
   "version": "0.0.1",
-  "description": "JavaScript project structure on which I'm basing other projects.",
+  "description": "The server part of my platform.",
   "main": "index.js",
   "author": "",
   "license": "ISC",
