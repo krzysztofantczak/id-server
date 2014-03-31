@@ -141,11 +141,12 @@ gulp.task 'watch', ['compile', 'copy'], ->
 			.pipe gulp.dest "#{config.directories.build}"
 
 	monitor = nodemon
-		script: 'app.js'
+		script: 'index.js'
 		watch:  [ "#{config.directories.build}" ]
 		ext:    'js css html'
 
 gulp.task 'default', [
 	'compile'
 	'copy'
+	'test'
 ]
