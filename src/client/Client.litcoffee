@@ -6,8 +6,7 @@ Global depencencies.
 
 Local depencies.
 
-	StateMachineTransform = require '../../lib/streams/StateMachineTransform'
-	{ log, debug }        = require '../../lib/debug'
+	{ log, debug } = require '../../lib/debug'
 
 A class that will establish and make available a connection to a Server. Used
 by the Server class for instances to connect to other Server instances. Enables

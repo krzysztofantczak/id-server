@@ -7,7 +7,7 @@ Global dependencies.
 
 Local dependencies.
 
-	Client         = require '../client/tcp/Client'
+	Client         = require './client/Client'
 	ManagedPort    = require './ManagedPort'
 	{ log, debug } = require '../lib/debug'
 

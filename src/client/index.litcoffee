@@ -1,3 +1,2 @@
 	module.exports =
-		browser: require './browser'
-		tcp:     require './tcp'
+		Client: require './Client'
