@@ -13,7 +13,7 @@ RPC interface over TCP.
 
 	class DnodeServer extends TCPServer
 		constructor: (options) ->
-			debug 'DnodeServer#constructor'
+			debug 'DnodeServer#constructor', options
 
 			super options
 

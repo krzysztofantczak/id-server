@@ -1,4 +1,5 @@
 Global dependencies.
+
 	idShared       = require 'id-shared'
 	net            = require 'net'
 	{ log, debug } = idShared.debug
@@ -11,7 +12,7 @@ Wraps the Node.js net.Server.
 
 	class TCPServer extends Server
 		constructor: (options) ->
-			debug 'TCPServer#constructor'
+			debug 'TCPServer#constructor', options
 
 			super options
 

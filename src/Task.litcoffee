@@ -1,5 +1,5 @@
 Global dependencies.
-Local dependencies.
+
 	_                = require 'underscore'
 	async            = require 'async'
 	fs               = require 'fs'
@@ -15,7 +15,7 @@ Delegates work in parallel over workers
 
 	class Task extends EventEmitter
 		constructor: (options) ->
-			debug 'Task#constructor', arguments
+			debug 'Task#constructor', options
 
 			throw new Error 'command option required' unless options.command
 			throw new Error 'name option required'    unless options.name
@@ -43,7 +43,7 @@ Delegates work in parallel over workers
 			@started     = false
 
 			fs.exists @path, (exists) =>
-				@emit 'error', new Error 'path does not exist' unless exists
+				@emit 'error', new Error "path `#{@path}` does not exist" unless exists
 
 Add a worker to @workers and @pids
 
@@ -110,11 +110,7 @@ Remove a worker from @workers and @pids
 
 			throw new Error 'not started' unless @started
 
-			fn = (worker) =>
-				(cb) =>
-					@_stopWorker worker, cb
-
-			async.parallel _.map(@workers, fn), (error) =>
+			async.each @workers, (@_stopWorker.bind this), (error) =>
 				@started = false
 				@emit 'stop'
 

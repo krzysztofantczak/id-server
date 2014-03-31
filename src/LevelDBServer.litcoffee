@@ -14,7 +14,7 @@ Wraps a Multilevel Server.
 
 	class LevelDBServer extends TCPServer
 		constructor: (options) ->
-			debug 'LevelDBServer#constructor'
+			debug 'LevelDBServer#constructor', options
 
 			super options
 

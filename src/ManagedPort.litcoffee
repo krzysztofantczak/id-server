@@ -10,7 +10,7 @@ Provides an abstraction to a (distributed) Service Registry.
 
 	class ManagedPort extends EventEmitter
 		constructor: (options) ->
-			debug 'ManagedPort#constructor', arguments
+			debug 'ManagedPort#constructor', options
 
 			throw new Error 'name option required'         unless options.name
 			throw new Error 'version option required'      unless options.name

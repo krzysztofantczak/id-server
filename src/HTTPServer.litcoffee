@@ -12,7 +12,7 @@ Wraps the Node.js http.Server
 
 	class HTTPServer extends Server
 		constructor: (options) ->
-			debug 'HTTPServer#constructor'
+			debug 'HTTPServer#constructor', options
 
 			super options
 

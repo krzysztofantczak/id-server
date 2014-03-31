@@ -18,7 +18,7 @@ automatically.
 
 	class Server extends ManagedPort
 		constructor: (options) ->
-			debug 'Server#constructor'
+			debug 'Server#constructor', options
 
 			super options
 
